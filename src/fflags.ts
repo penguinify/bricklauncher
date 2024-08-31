@@ -13,6 +13,10 @@ type RobloxSettingsValues = {
         Phase: string | null
         [key: string]: string | null
     }
+    Graphics: {
+        MoreQualityOptions: string | null
+        [key: string]: string | null
+    }
 }
 
 type RobloxSettings = {
@@ -20,6 +24,10 @@ type RobloxSettings = {
         [key: string]: (input: string | null) => KeyString | {}
     }
     Lighting: {
+        [key: string]: (input: string | null) => KeyString | {}
+    }
+
+    Graphics: {
         [key: string]: (input: string | null) => KeyString | {}
     }
 }
@@ -65,6 +73,18 @@ const Settings: RobloxSettings = {
                     }
                 default:
                     return {}
+            }
+        }
+    },
+    Graphics: {
+        MoreQualityOptions: function (input: string | null = null) {
+            if (input == "True") {
+                return {
+                    "FFlagCommitToGraphicsQualityFix": "True",
+                    "FFlagFixGraphicsQuality": "True"
+                }
+            } else {
+                return {}
             }
         }
     }

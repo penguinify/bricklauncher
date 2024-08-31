@@ -19,6 +19,7 @@
 
         <Dropdown label="Renderer Framework" description="The renderer to use" :options="['Metal', 'Vulkan', 'OpenGL']" v-model:value="robloxsettings.Renderer.Framework" default="Metal" />
         <Dropdown label="Lighting Technology" description="The lighting technology to use" :options="['Game Default (Recommended)', 'Shadow Map: Phase 2', 'Voxel: Phase 1', 'Future: Phase 3']" v-model:value="robloxsettings.Lighting.Phase" default="Game Default (Recommended)" />
+        <Switch label="More Quality Options" description="Graphics quality is now a scale from 1-21 instead of 1-7" v-model:value="robloxsettings.Graphics.MoreQualityOptions" default="True" />
     </div>
 </template>
 
@@ -27,6 +28,7 @@
     import { Settings, flattenSettings, RobloxSettingValues } from '../fflags';
     import { PatchSettings, PatchOption } from '../settings';
     import Dropdown from '../components/Dropdown.vue';
+    import Switch from '../components/Switch.vue';
     import { invoke } from '@tauri-apps/api/tauri';
 
     import { reactive } from 'vue';
@@ -38,6 +40,10 @@
 
             Lighting: {
                 Phase: "Game Default (Recommended)",
+            },
+
+            Graphics: {
+                MoreQualityOptions: true,
             }
         }
     )
