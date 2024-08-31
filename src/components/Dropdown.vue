@@ -2,7 +2,7 @@
     <div>
         <h3 class="setting-label">{{ label }}</h3>
         <p class="setting-description">{{ description }}</p>
-        <select v-model="props.value" @change="emit('update:value', $event.target.value)">
+        <select @change="emit('update:value', $event.target.value)">
             <option v-for="option in props.options" :value="option" :selected="option === props.default">{{ option }}</option>
         </select>
     </div>
@@ -29,7 +29,13 @@
     select {
         width: 100%;
         padding: 2rem;
-        margin-top: 0.5rem;
+        margin-top: 1rem;
         font-size: 1.5rem;
+
+
+        &:focus {
+            outline: none;
+        }
+
     }
 </style>

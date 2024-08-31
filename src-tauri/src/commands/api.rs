@@ -7,6 +7,8 @@ pub struct Config {
     pub client_app_settings_path: String,
     pub client_app_settings_file: String,
     pub version: String,
+    pub cache_path: String,
+    pub cache_file: String,
 }
 
 pub fn get_config() -> Config {

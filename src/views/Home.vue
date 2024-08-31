@@ -13,7 +13,7 @@
                 </RouterLink>
 
                 <RouterLink to="settings">
-                <button class="button-br">mods</button>
+                <button class="button-br">appearance</button>
                 </RouterLink>
             </div>
         </div>

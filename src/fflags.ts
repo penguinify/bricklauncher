@@ -15,6 +15,8 @@ type RobloxSettingsValues = {
     }
     Graphics: {
         MoreQualityOptions: string | null
+        ShowFPS: string | null
+        UnlockFPS: string | null
         [key: string]: string | null
     }
 }
@@ -86,6 +88,27 @@ const Settings: RobloxSettings = {
             } else {
                 return {}
             }
+        },
+
+        ShowFPS: function (input: string | null = null) {
+            if (input == "True") {
+                return {
+                    "FFlagDebugDisplayFPS": "True"
+                }
+            } else {
+                return {}
+            }
+        },
+
+        UnlockFPS: function (input: string | null = null) {
+            if (input == "True") {
+                return {
+                    "FFlagTaskSchedulerLimitTargetFpsTo2402": "False",
+                    "DFIntTaskSchedulerTargetFps": "9999"
+                }
+            } else {
+                return {}
+            }
         }
     }
 }
@@ -95,8 +118,8 @@ function flattenSettings(settings: RobloxSettingsValues): KeyString {
     // TODO: Add Typesafety lol
     let flattenedSettings: KeyString = {}
 
-    for (let category in settings) {
-        let categorykey = category as keyof RobloxSettingsValues
+    for (var category in settings) {
+        var categorykey = category as keyof RobloxSettingsValues
         
         for (let key in settings[categorykey]) {
 

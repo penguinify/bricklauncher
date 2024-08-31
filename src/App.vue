@@ -4,7 +4,7 @@
 </script>
 
 <template>
-    <div>
+    <div class="container">
   <transition>
     <RouterView />
   </transition>
@@ -13,6 +13,28 @@
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* Scroll bar stylings */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: var(--border-radius);
+  background: var(--secondary);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -35,6 +57,11 @@
 
 :root {
     --border-radius: 1rem;
+}
+
+::selection {
+    background-color: var(--accent);
+    color: var(--text);
 }
 
 

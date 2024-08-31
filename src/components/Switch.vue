@@ -6,33 +6,30 @@
         <h3 class="setting-label">{{ label }}</h3>
         <p class="setting-description">{{ description }}</p>
         <label class="switch">
-            <input type="checkbox" v-model="props.value" @change="emit('update:value', $event.target.checked ? 'True' : 'False' )" :checked="props.default === 'True'" >
+            <input type="checkbox" :checked="props.default === 'True'" @change="emit('update:value', $event.target.checked ? 'True' : 'False')">
             <span class="slider"></span>
         </label>
     </div>
 </template>
 
 <script setup lang="ts">
+import { watch } from 'vue';
 
-    import { defineEmits} from 'vue';
+const props = defineProps<{
+    default: string
+    label: string
+    description: string
+    value: string
+}>();
 
-    const props = defineProps<{
-        default: string
-        label: string
-        description: string
-        value: string
-        
-    }>();
-
-
-
-    const emit = defineEmits(['update:value']);
+const emit = defineEmits(['update:value']);
 
 </script>
 
 <style scoped>
 
 .switch {
+    margin-top: 1rem;
   font-size: 17px;
   position: relative;
   display: inline-block;
