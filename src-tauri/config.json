@@ -1,8 +1,8 @@
 {
-    "roblox_path": "/Applications/Roblox.app/",
-    "client_app_settings_path": "Contents/MacOS/ClientSettings/",
-    "client_app_settings_file": "ClientAppSettings.json",
-    "cache_path": "~/.cache/bricklauncher/",
-    "cache_file": "cache.json",
-    "version": "0.1.0"
+  "roblox_path": "/Applications/Roblox.app/",
+  "client_app_settings_path": "Contents/MacOS/ClientSettings/",
+  "client_app_settings_file": "ClientAppSettings.json",
+  "cache_path": "~/.cache/bricklauncher/",
+  "cache_file": "cache.json",
+  "version": "0.1.0"
 }

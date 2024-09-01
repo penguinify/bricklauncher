@@ -1,34 +1,40 @@
-// Copyright - 2024 arghyaBiswasDev (Arghya Biswas) Under MIT License
-// All rights reserved.
+// Copyright - 2024 arghyaBiswasDev (Arghya Biswas) Under MIT License // All
+rights reserved.
 
 <template>
-    <div>
-        <h3 class="setting-label">{{ label }}</h3>
-        <p class="setting-description">{{ description }}</p>
-        <label class="switch">
-            <input type="checkbox" :checked="props.default === 'True'" @change="emit('update:value', ($event.target as HTMLInputElement)?.checked ? 'True' : 'False')">
-            <span class="slider"></span>
-        </label>
-    </div>
+  <div>
+    <h3 class="setting-label">{{ label }}</h3>
+    <p class="setting-description">{{ description }}</p>
+    <label class="switch">
+      <input
+        type="checkbox"
+        :checked="props.default === 'True'"
+        @change="
+          emit(
+            'update:value',
+            ($event.target as HTMLInputElement)?.checked ? 'True' : 'False',
+          )
+        "
+      />
+      <span class="slider"></span>
+    </label>
+  </div>
 </template>
 
 <script setup lang="ts">
-
 const props = defineProps<{
-    default: string
-    label: string
-    description: string
-    value: string
+  default: string;
+  label: string;
+  description: string;
+  value: string;
 }>();
 
-const emit = defineEmits(['update:value']);
-
+const emit = defineEmits(["update:value"]);
 </script>
 
 <style scoped>
-
 .switch {
-    margin-top: 1rem;
+  margin-top: 1rem;
   font-size: 17px;
   position: relative;
   display: inline-block;
@@ -53,7 +59,7 @@ const emit = defineEmits(['update:value']);
   bottom: 0;
   background-color: var(--background);
   border: 1px solid var(--secondary);
-  transition: .4s;
+  transition: 0.4s;
   border-radius: 30px;
 }
 
@@ -64,9 +70,9 @@ const emit = defineEmits(['update:value']);
   width: 1em;
   border-radius: 20px;
   left: 0.27em;
-  bottom: 0.20em;
+  bottom: 0.2em;
   background-color: var(--secondary);
-  transition: .4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {
@@ -82,5 +88,4 @@ input:checked + .slider:before {
   transform: translateX(1.4em);
   background-color: var(--background);
 }
-
 </style>

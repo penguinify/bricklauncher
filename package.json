@@ -8,7 +8,8 @@
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "tauri": "tauri",
-    "release": "vue-tsc --noEmit && vite build && tauri build"
+    "release": "vue-tsc --noEmit && vite build && tauri build",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@tauri-apps/api": "^1",
@@ -18,6 +19,7 @@
   "devDependencies": {
     "@tauri-apps/cli": "^1",
     "@vitejs/plugin-vue": "^5.0.5",
+    "prettier": "^3.3.3",
     "typescript": "^5.2.2",
     "vite": "^5.3.1",
     "vue-tsc": "^2.0.22"
