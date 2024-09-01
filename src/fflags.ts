@@ -6,37 +6,32 @@ type KeyString = {
 
 type RobloxSettingsValues = {
     Renderer: {
-        Framework: string | null
-        [key: string]: string | null
+        [key: string]: string
     }
     Lighting: {
-        Phase: string | null
-        [key: string]: string | null
+        [key: string]: string
     }
     Graphics: {
-        MoreQualityOptions: string | null
-        ShowFPS: string | null
-        UnlockFPS: string | null
-        [key: string]: string | null
+        [key: string]: string
     }
 }
 
 type RobloxSettings = {
     Renderer: {
-        [key: string]: (input: string | null) => KeyString | {}
+        [key: string]: (input: string) => KeyString | {}
     }
     Lighting: {
-        [key: string]: (input: string | null) => KeyString | {}
+        [key: string]: (input: string) => KeyString | {}
     }
 
     Graphics: {
-        [key: string]: (input: string | null) => KeyString | {}
+        [key: string]: (input: string) => KeyString | {}
     }
 }
 
 const Settings: RobloxSettings = {
     Renderer: {
-        Framework: function (input: string | null = null) {
+        Framework: function (input: string) {
             switch (input) {
                 case "Metal":
                     return {
@@ -59,7 +54,7 @@ const Settings: RobloxSettings = {
         }
     },
     Lighting: {
-        Phase: function (input: string | null = null) {
+        Phase: function (input: string) {
             switch (input) {
                 case "Voxel: Phase 1":
                     return {
@@ -79,7 +74,7 @@ const Settings: RobloxSettings = {
         }
     },
     Graphics: {
-        MoreQualityOptions: function (input: string | null = null) {
+        MoreQualityOptions: function (input: string) {
             if (input == "True") {
                 return {
                     "FFlagCommitToGraphicsQualityFix": "True",
@@ -90,7 +85,7 @@ const Settings: RobloxSettings = {
             }
         },
 
-        ShowFPS: function (input: string | null = null) {
+        ShowFPS: function (input: string) {
             if (input == "True") {
                 return {
                     "FFlagDebugDisplayFPS": "True"
@@ -100,7 +95,7 @@ const Settings: RobloxSettings = {
             }
         },
 
-        UnlockFPS: function (input: string | null = null) {
+        UnlockFPS: function (input: string) {
             if (input == "True") {
                 return {
                     "FFlagTaskSchedulerLimitTargetFpsTo2402": "False",
@@ -124,7 +119,7 @@ function flattenSettings(settings: RobloxSettingsValues): KeyString {
         for (let key in settings[categorykey]) {
 
             let keykey = key as keyof KeyString
-            let value: string | null = settings[categorykey][keykey]
+            let value: string = settings[categorykey][keykey]
 
             flattenedSettings = {
                 ...flattenedSettings,

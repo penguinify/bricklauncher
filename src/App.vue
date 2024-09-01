@@ -1,117 +1,187 @@
 <script setup lang="ts">
-    import { invoke } from '@tauri-apps/api/tauri';
 
 </script>
 
 <template>
     <div class="container">
-  <transition>
-    <RouterView />
-  </transition>
+        <transition>
+        <RouterView />
+        </transition>
     </div>
 </template>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-/* Scroll bar stylings */
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+    width: 10px;
+    height: 10px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
-  background: var(--background);
+    background: var(--background);
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
-  border-radius: var(--border-radius);
-  background: var(--secondary);
+    border-radius: var(--border-radius);
+    background: var(--secondary);
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: var(--accent);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --text: #19130a;
-    --background: #fbeedf;
-    --primary: #b86b00;
-    --secondary: #dcb384;
-    --accent: #c97d26;
+/* Scroll bar stylings */
+  @media (prefers-color-scheme: light) {
+      :root {
+          --text: #19130a;
+          --background: #fbeedf;
+          --primary: #b86b00;
+          --secondary: #dcb384;
+          --accent: #c97d26;
+      }
   }
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #f4ede4;
-    --background: #201304;
-    --primary: #ffb145;
-    --secondary: #7c5323;
-    --accent: #d88c36;
+  @media (prefers-color-scheme: dark) {
+      :root {
+          --text: #f4ede4;
+          --background: #201304;
+          --primary: #ffb145;
+          --secondary: #7c5323;
+          --accent: #d88c36;
+      }
   }
-}
 
-:root {
-    --border-radius: 1rem;
-}
+  :root {
+      --border-radius: 1rem;
+  }
 
-::selection {
-    background-color: var(--accent);
-    color: var(--text);
-}
-
-
-.header {
-
-    h1 {
-        font-size: 3rem;
-        margin: 0;
-        text-align: center;
-        width: 100%;
-        padding: 0;
-        color: var(--primary);
-        transform: skew(-10deg);
-
-        span:nth-child(2) {
-            color: var(--secondary);
-        }
-
-        span:nth-child(3) {
-            font-size: 1.25rem;
-            color: var(--background);
-            -webkit-text-stroke-width: 1px;
-            -webkit-text-stroke-color: var(--secondary);
-        }
-    }
-}
-
-body {
-    font-family: 'Inter', sans-serif !important;
-    background-color: var(--background);
-    color: var(--text);
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
-}
+  ::selection {
+      background-color: var(--accent);
+      color: var(--text);
+  }
 
 
+  .header {
 
-.v-enter-active {
-    transition: 0.3s ease;
-}
+      h1 {
+          font-size: 4rem;
+          margin: 0;
+          text-align: center;
+          width: 100%;
+          padding: 0;
+          color: var(--primary);
+          transform: skew(-10deg);
 
-.v-enter-from {
-    transform: rotateZ(10deg) scale(0.9);
-    opacity: 0;
-}
+          span:nth-child(2) {
+              color: var(--secondary);
+          }
+
+          span:nth-child(3) {
+              font-size: 1.25rem;
+              color: var(--background);
+              -webkit-text-stroke-width: 1px;
+              -webkit-text-stroke-color: var(--secondary);
+          }
+      }
+  }
+
+  body {
+      font-family: 'Inter', sans-serif !important;
+      background-color: var(--background);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+  }
+
+
+
+  .v-enter-active {
+      transition: 0.2s ease;
+  }
+
+  .v-enter-from {
+      transform: rotateZ(5deg) scale(0.9);
+      opacity: 0;
+  }
+
+  .buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 2rem;
+
+      svg {
+          fill: var(--text);
+          height: 1rem;
+          width: 1rem !important;
+          aspect-ratio: 1;
+          margin: 0;
+      }
+
+      a {
+          width: 100%;
+          transition: 0.5s ease;
+      }
+
+      button {
+          background-color: var(--secondary);
+          color: var(--text);
+          border: none;
+          padding: 1rem 0rem;
+          cursor: pointer;
+          transition: 1s ease;
+          font-size: 1.5rem;
+          width: 100%;
+
+          font-weight: 300;
+
+          font-family: 'Inter', sans-serif;
+
+          transition: 0.5s ease;
+
+          &:hover {
+              background-color: var(--accent);
+          }
+      }
+
+      div {
+          display: flex;
+          width: 100%;
+
+          &:hover :not(a:hover) {
+              width: 60%;
+
+              button {
+                  width: 100%;
+              }
+          }
+
+          &:hover a:hover {
+              button {
+                  width: 100%;
+              }
+          }
+      }
+  }
+
+
+  .setting-label {
+      font-size: 1.7rem;
+      font-weight: 500;
+      line-height: 0;
+      margin-top: 2rem;
+  }
+
+  .setting-description {
+      font-size: 1rem;
+      font-weight: 300;
+      margin-top: 0;
+  }
 
 </style>
 

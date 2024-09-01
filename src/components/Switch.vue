@@ -6,14 +6,13 @@
         <h3 class="setting-label">{{ label }}</h3>
         <p class="setting-description">{{ description }}</p>
         <label class="switch">
-            <input type="checkbox" :checked="props.default === 'True'" @change="emit('update:value', $event.target.checked ? 'True' : 'False')">
+            <input type="checkbox" :checked="props.default === 'True'" @change="emit('update:value', ($event.target as HTMLInputElement)?.checked ? 'True' : 'False')">
             <span class="slider"></span>
         </label>
     </div>
 </template>
 
 <script setup lang="ts">
-import { watch } from 'vue';
 
 const props = defineProps<{
     default: string
