@@ -129,7 +129,7 @@
 </script>
 
 
-<style>
+<style scoped>
 
 .settings-container {
     width: clamp(30rem, 50vw, 60rem);
@@ -141,38 +141,4 @@
     overflow-x: hidden;
     padding: 2rem;
 }
-
-    .button-right {
-        border-bottom-right-radius: var(--border-radius);
-        border-top-right-radius: var(--border-radius);
-    }
-    
-    .button-left {
-        border-bottom-left-radius: var(--border-radius);
-        border-top-left-radius: var(--border-radius);
-    }
-
-            .setting-label {
-                font-size: 1.7rem;
-                font-weight: 500;
-                line-height: 0;
-                margin-top: 2rem;
-            }
-
-            .setting-description {
-                font-size: 1rem;
-                font-weight: 300;
-                margin-top: 0;
-            }
-
-            .options {
-                div {
-                    display: flex;
-                    flex-direction: column;
-                    margin-top: 1rem;
-                    background-color: var(--secondary);
-                    padding: 1rem;
-                    border-radius: var(--border-radius);
-                }
-            }
 </style>
