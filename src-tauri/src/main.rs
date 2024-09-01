@@ -11,7 +11,10 @@ fn main() {
             commands::patch_roblox::patch_roblox,
             commands::get_version::get_version,
             commands::cache::set_cache,
-            commands::cache::get_cache
+            commands::cache::get_cache,
+            commands::verify_files::verify_files,
+            commands::api::edit_config,
+            commands::api::get_config,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
