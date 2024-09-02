@@ -4,29 +4,34 @@ import Home from './Home.vue'
 import Settings from './Settings.vue'
 import Appearance from './Appearance.vue'
 import Setup from './setup.vue'
+import CustomFflags from './CustomFflags.vue'
 
 const routes = [
     {
         path: '/',
-        component: Home,
+        component: Home
     },
     {
         path: '/settings',
-        component: Settings,
+        component: Settings
     },
     {
         path: '/appearance',
-        component: Appearance,
+        component: Appearance
     },
     {
         path: '/setup',
-        component: Setup,
+        component: Setup
     },
+    {
+        path: '/customfflags',
+        component: CustomFflags
+    }
 ]
 
 const router = createRouter({
     history: createWebHistory(),
-    routes,
+    routes
 })
 
 export default router

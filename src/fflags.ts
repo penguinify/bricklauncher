@@ -33,49 +33,49 @@ const Settings: RobloxSettings = {
             switch (input) {
                 case 'Metal':
                     return {
-                        FFlagDebugGraphicsPreferMetal: 'True',
+                        FFlagDebugGraphicsPreferMetal: 'True'
                     }
                 case 'Vulkan':
                     return {
                         FFlagDebugGraphicsDisableDirect3D11: 'True',
-                        FFlagDebugGraphicsPreferVulkan: 'True',
+                        FFlagDebugGraphicsPreferVulkan: 'True'
                     }
                 case 'OpenGL':
                     return {
                         FFlagDebugGraphicsDisableDirect3D11: 'True',
-                        FFlagDebugGraphicsPreferOpenGl: 'True',
+                        FFlagDebugGraphicsPreferOpenGl: 'True'
                     }
                 default:
                     return {}
             }
-        },
+        }
     },
     Lighting: {
         Phase: function (input: string) {
             switch (input) {
                 case 'Voxel: Phase 1':
                     return {
-                        DFFlagDebugRenderForceTechnologyVoxel: 'True',
+                        DFFlagDebugRenderForceTechnologyVoxel: 'True'
                     }
                 case 'Shadow Map: Phase 2':
                     return {
-                        DFFlagDebugRenderForceTechnologyShadowMap: 'True',
+                        DFFlagDebugRenderForceTechnologyShadowMap: 'True'
                     }
                 case 'Future: Phase 3':
                     return {
-                        DFFlagDebugRenderForceTechnologyShadowMapV2: 'True',
+                        DFFlagDebugRenderForceTechnologyShadowMapV2: 'True'
                     }
                 default:
                     return {}
             }
-        },
+        }
     },
     Graphics: {
         MoreQualityOptions: function (input: string) {
             if (input == 'True') {
                 return {
                     FFlagCommitToGraphicsQualityFix: 'True',
-                    FFlagFixGraphicsQuality: 'True',
+                    FFlagFixGraphicsQuality: 'True'
                 }
             } else {
                 return {}
@@ -85,7 +85,7 @@ const Settings: RobloxSettings = {
         ShowFPS: function (input: string) {
             if (input == 'True') {
                 return {
-                    FFlagDebugDisplayFPS: 'True',
+                    FFlagDebugDisplayFPS: 'True'
                 }
             } else {
                 return {}
@@ -96,7 +96,7 @@ const Settings: RobloxSettings = {
             if (input == 'True') {
                 return {
                     FFlagTaskSchedulerLimitTargetFpsTo2402: 'False',
-                    DFIntTaskSchedulerTargetFps: '9999',
+                    DFIntTaskSchedulerTargetFps: '9999'
                 }
             } else {
                 return {}
@@ -105,13 +105,13 @@ const Settings: RobloxSettings = {
         BlueColors: function (input: string) {
             if (input == 'True') {
                 return {
-                    FFlagLuaAppEnableFoundationColors: "True"
+                    FFlagLuaAppEnableFoundationColors: 'True'
                 }
             } else {
                 return {}
             }
         }
-    },
+    }
 }
 
 function flattenSettings(settings: RobloxSettingsValues): KeyString {
@@ -125,11 +125,15 @@ function flattenSettings(settings: RobloxSettingsValues): KeyString {
             let keykey = key as keyof KeyString
             let value: string = settings[categorykey][keykey]
 
-            flattenedSettings = {
-                ...flattenedSettings,
-                ...Settings[category as keyof RobloxSettings][
-                    key as keyof KeyString
-                ](value),
+            try { 
+                flattenedSettings = {
+                    ...flattenedSettings,
+                    ...Settings[category as keyof RobloxSettings][
+                        key as keyof KeyString
+                    ](value)
+                }
+            } catch (e) {
+                console.error(`Failed to apply setting ${category}.${key} with value ${value}`)
             }
         }
     }

@@ -5,13 +5,11 @@
         <select
             @change="
                 emit('update:value', ($event.target as HTMLSelectElement).value)
-            "
-        >
+            ">
             <option
                 v-for="option in props.options"
                 :value="option"
-                :selected="option === props.default"
-            >
+                :selected="option === props.default">
                 {{ option }}
             </option>
         </select>

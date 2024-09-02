@@ -4,12 +4,11 @@ import { invoke } from '@tauri-apps/api/tauri'
 import router from './views/router'
 
 async function load_theme() {
-
     let config = await invoke('get_config')
 
     if (config.theme) {
         document.documentElement.setAttribute('data-theme', config.theme)
-        return;
+        return
     }
 
     var theme = ref('light')
@@ -26,7 +25,7 @@ async function load_theme() {
 async function setup() {
     load_theme()
 
-    let result: string = await invoke('verify_files');
+    let result: string = await invoke('verify_files')
 
     switch (result) {
         case 'no_roblox':

@@ -16,8 +16,7 @@ rights reserved.
                             ? 'True'
                             : 'False'
                     )
-                "
-            />
+                " />
             <span class="slider"></span>
         </label>
     </div>
@@ -42,6 +41,8 @@ const emit = defineEmits(['update:value'])
     display: inline-block;
     width: 3em;
     height: 1.5em;
+    
+    user-select: none;
 }
 
 /* Hide default HTML checkbox */
@@ -61,7 +62,7 @@ const emit = defineEmits(['update:value'])
     bottom: 0;
     background-color: var(--background);
     border: 1px solid var(--secondary);
-    transition: 0.4s;
+    transition: 0.5s ease;
     border-radius: 30px;
 }
 
@@ -74,7 +75,7 @@ const emit = defineEmits(['update:value'])
     left: 0.27em;
     bottom: 0.2em;
     background-color: var(--secondary);
-    transition: 0.4s;
+    transition: 0.5s ease;
 }
 
 input:checked + .slider {
@@ -82,9 +83,6 @@ input:checked + .slider {
     border: 1px solid var(--accent);
 }
 
-input:focus + .slider {
-    box-shadow: 0 0 1px #007bff;
-}
 
 input:checked + .slider:before {
     transform: translateX(1.4em);

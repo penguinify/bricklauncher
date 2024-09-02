@@ -18,6 +18,9 @@
             },
             "dialog": {
                 "all": true
+            },
+            "clipboard": {
+                "readText": true
             }
         },
         "windows": [

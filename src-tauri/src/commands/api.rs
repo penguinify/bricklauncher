@@ -2,6 +2,7 @@ use serde::{Deserialize, Serialize};
 use serde_json;
 use expanduser::expanduser;
 use std::fs;
+use tauri::api::dialog;
 
 #[derive(Serialize, Deserialize)]
 pub struct Config {
@@ -11,6 +12,7 @@ pub struct Config {
     pub version: String,
     pub cache_path: String,
     pub cache_file: String,
+    pub custom_fflags_cache_file: String,
     pub theme: String,
 }
 
@@ -24,6 +26,7 @@ impl Config {
             version: "0.1.0".to_string(),
             cache_path: "~/.cache/bricklauncher/".to_string(),
             cache_file: "cache.json".to_string(),
+            custom_fflags_cache_file: "custom_fflags_cache.json".to_string(),
             theme: "light".to_string(),
         }
     }
@@ -50,7 +53,16 @@ pub fn get_config() -> Config {
 
     let config_json = fs::read_to_string(&config_path).expect("Failed to read config file");
 
-    let config: Config = serde_json::from_str(&config_json).expect("Failed to parse config file");
+    let config: Result<_, Config> = serde_json::from_str(&config_json).map_err(|e| {
+        eprintln!("Failed to parse config file: {}", e);
+
+        Config::new()
+    });
+
+    let config = match config {
+        Ok(config) => config,
+        Err(config) => config,
+    };
 
     return config;
 
