@@ -15,8 +15,6 @@ fn main() {
             commands::verify_files::verify_files,
             commands::api::edit_config,
             commands::api::get_config,
-            commands::cache::set_custom_fflags_cache,
-            commands::cache::get_custom_fflags_cache,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

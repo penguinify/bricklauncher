@@ -23,7 +23,7 @@ impl Config {
             roblox_path: "/Applications/Roblox.app/".to_string(),
             client_app_settings_path: "Contents/MacOS/ClientSettings/".to_string(),
             client_app_settings_file: "ClientAppSettings.json".to_string(),
-            version: "0.1.0".to_string(),
+            version: "0.2.0".to_string(),
             cache_path: "~/.cache/bricklauncher/".to_string(),
             cache_file: "cache.json".to_string(),
             custom_fflags_cache_file: "custom_fflags_cache.json".to_string(),

@@ -144,7 +144,7 @@ body {
         width: 100%;
 
         &:hover :not(a:hover) {
-            width: 60%;
+            width: 80%;
 
             button {
                 width: 100%;

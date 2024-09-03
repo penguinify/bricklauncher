@@ -18,7 +18,7 @@
                         back
                     </button>
                 </RouterLink>
-                <RouterLink to="customfflags">
+                <RouterLink to="customfflags" @click="patch_wrapper()">
                     <button class="button-right">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -99,14 +99,14 @@ var robloxsettings = reactive<RobloxSettingsValues>({
 })
 
 async function patch_wrapper() {
-    await invoke('set_cache', { json: robloxsettings })
+    await invoke('set_cache', { json: robloxsettings, cacheFileName: 'robloxsettings.json' })
     patch(robloxsettings)
 }
 
 /* Scroll bar stylings */
 
 function load_cache() {
-    invoke('get_cache').then((res) => {
+    invoke('get_cache', {cacheFileName: 'robloxsettings.json'}).then((res) => {
         // edits the values of robloxsettings so that they update the components
         for (let key in res as RobloxSettingsValues) {
             robloxsettings[key as keyof RobloxSettingsValues] = (
@@ -121,7 +121,7 @@ load_cache()
 
 <style scoped>
 .settings-container {
-    width: clamp(30rem, 50vw, 60rem);
+    width: clamp(50rem, 50vw, 70rem);
     height: clamp(20rem, 70vh, 90rem);
 
     border-radius: 3rem;

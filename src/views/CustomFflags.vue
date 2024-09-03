@@ -90,11 +90,15 @@
     }
 
     function save_cache() {
-        invoke('set_custom_fflags_cache', { 'json': customfflags_values })
+        invoke('set_cache', { 'json': customfflags_values, cacheFileName: 'customfflags.json' })
+            .catch((e) => {
+                console.error(e)
+                message('An error occurred while trying to save the custom fflags cache.', 'Error')
+            })
     }
 
     function setup() {
-        invoke('get_custom_fflags_cache')
+        invoke('get_cache', { cacheFileName: 'customfflags.json' })
             .catch((e) => {
                 console.error(e)
                 message('An error occurred while trying to get the custom fflags cache.', 'Error')
@@ -113,7 +117,7 @@
 <style scoped>
 
 .settings-container {
-    width: clamp(30rem, 50vw, 60rem);
+    width: clamp(50rem, 50vw, 80rem);
     height: clamp(20rem, 70vh, 90rem);
 
     border-radius: 3rem;

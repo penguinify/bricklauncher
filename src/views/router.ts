@@ -5,6 +5,7 @@ import Settings from './Settings.vue'
 import Appearance from './Appearance.vue'
 import Setup from './setup.vue'
 import CustomFflags from './CustomFflags.vue'
+import Credits from './Credits.vue'
 
 const routes = [
     {
@@ -26,6 +27,10 @@ const routes = [
     {
         path: '/customfflags',
         component: CustomFflags
+    },
+    {
+        path: '/credits',
+        component: Credits
     }
 ]
 
