@@ -8,6 +8,9 @@ Feature completeness:
 - [ ] Resource modification
 - [ ] Server locating
 
+# Differences between bricklauncher and bloxstrap
+Bloxstrap installs a seperate roblox exe from your main one. brick launcher directly edits the contents of the roblox.app instead of making a new one.
+
 # Technology
 - Rust
 - Tauri
