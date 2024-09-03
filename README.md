@@ -1,23 +1,23 @@
-u
-
 # bricklauncher
+[bloxstrap](https://github.com/pizzaboxer/bloxstrap) for macos.
 
-<<<<<<< HEAD
-customize your roblox install (Bloxstrap for OSX)
+Feature completeness:
+- [x] Custom FFlags
+- [x] FFlag presets
+- [ ] Discord RPC
+- [ ] Resource modification
+- [ ] Server locating
 
-## Roadmap
+# Technology
+- Rust
+- Tauri
+- Vue
+- Typescript
+- CSS
 
-This is a roadmap to mostly feature parity with original Bloxstrap
+# Demo video
+[video](https://www.youtube.com/watch?v=2dMhCnxSiAs)
 
--   Components
--   -   Switch
-    -   Input
--   Add support for modifying content (custom fonts and themes)
--   FFlags editor
--   Save patch options
--   # Save app options
-    Bloxstrap for osx
-
-## Demo Screenshots (v0.1.0)
-
-> > > > > > > ad1c899 (Added toggle switch and a graphics quality option)
+# Author
+penguinify © 2024 under GPL-3.0    
+close sourcing and monetizing is strictly prohibited
