@@ -21,6 +21,13 @@ Bloxstrap installs a seperate roblox exe from your main one. brick launcher dire
 # Demo video
 [video](https://www.youtube.com/watch?v=2dMhCnxSiAs)
 
+# Alternatives
+- Windows:
+  - [bloxstrap](https://github.com/pizzaboxer/bloxstrap)
+- Macos:
+  - WIP [BloxstrapX](https://github.com/Ordyyx/bloxstrapx)
+  - [bloxstrap-osx](https://github.com/Ordyyx/bloxstrap-osx)
+
 # Author
 penguinify © 2024 under GPL-3.0    
 close sourcing and monetizing is strictly prohibited
