@@ -21,10 +21,9 @@
 
         <div class="setup-div">
             <div id="no-roblox">
-                <h2>Find your Roblox App</h2>
+                <h2>Find/Change your Roblox App</h2>
                 <p>
-                    Roblox was not found in its default path. Please open the
-                    path
+                change the location of your "Roblox.app" file. This is usually located in "/Applications/Roblox.app"
                 </p>
                 <button @click="findRobloxPath()">find roblox path</button>
             </div>
@@ -76,11 +75,11 @@ async function findRobloxPath() {
     background-color: var(--secondary);
     padding: 1rem;
 
-    width: clamp(20rem, 40vh, 40rem);
 
     border-radius: var(--border-radius);
 
     div {
+        width: 100%;
         button {
             padding: 0.7rem 2rem;
             margin-top: 1rem;
@@ -90,7 +89,7 @@ async function findRobloxPath() {
             cursor: pointer;
             transition: background-color 0.2s;
 
-            font-size: 0.8rem;
+            font-size: 1rem;
             font-family: 'Inter', sans-serif;
             color: var(--text);
 

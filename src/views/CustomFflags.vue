@@ -116,16 +116,6 @@
 
 <style scoped>
 
-.settings-container {
-    width: clamp(50rem, 50vw, 80rem);
-    height: clamp(20rem, 70vh, 90rem);
-
-    border-radius: 3rem;
-
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding: 2rem;
-}
 .options {
     margin-top: 2rem;
     

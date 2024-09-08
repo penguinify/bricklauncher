@@ -103,31 +103,15 @@ async function patch_wrapper() {
     patch(robloxsettings)
 }
 
-/* Scroll bar stylings */
-
 function load_cache() {
-    invoke('get_cache', {cacheFileName: 'robloxsettings.json'}).then((res) => {
-        // edits the values of robloxsettings so that they update the components
-        for (let key in res as RobloxSettingsValues) {
-            robloxsettings[key as keyof RobloxSettingsValues] = (
-                res as RobloxSettingsValues
-            )[key as keyof RobloxSettingsValues]
+    invoke('get_cache', { cacheFileName: 'robloxsettings.json' }).then((res) => {
+        const settings = res as RobloxSettingsValues;
+        for (const key in settings) {
+            robloxsettings[key] = settings[key];
         }
-    })
+    });
 }
 
 load_cache()
 </script>
 
-<style scoped>
-.settings-container {
-    width: clamp(50rem, 50vw, 70rem);
-    height: clamp(20rem, 70vh, 90rem);
-
-    border-radius: 3rem;
-
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding: 2rem;
-}
-</style>

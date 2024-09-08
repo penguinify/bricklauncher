@@ -13,11 +13,11 @@ pub fn patch_roblox(json: Value) -> Result<(), String> {
     let client_app_settings_path = format!("{}/{}", config.roblox_path, config.client_app_settings_path);
 
     if !Path::new(&client_app_settings_path).exists() {
-        std::fs::create_dir_all(&config.roblox_path)
+        std::fs::create_dir_all(&client_app_settings_path)
             .map_err(|e| format!("Failed to create directory {}: {}", config.roblox_path, e))?;
     }
 
-    let client_app_settings_file = format!("{}/{}", client_app_settings_path, config.client_app_settings_file);
+    let client_app_settings_file = format!("{}{}", client_app_settings_path, config.client_app_settings_file);
 
     let mut file = File::create(&client_app_settings_file)
         .map_err(|e| format!("Failed to create file {}: {}", client_app_settings_file, e))?;

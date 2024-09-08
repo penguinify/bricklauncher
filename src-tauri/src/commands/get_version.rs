@@ -1,8 +1,10 @@
 
-use crate::commands::api;
-#[tauri::command]
-pub fn get_version() -> Result<String, String> {
-    let config = api::get_config();
+use std::env;
 
-    Ok(config.version)
+#[tauri::command]
+pub fn get_version() -> Result<String, String> {    
+    let version = env!("CARGO_PKG_VERSION");
+    Ok(version.to_string())
+
+    
 }
